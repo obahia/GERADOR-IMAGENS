@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto X</title>
+<style>
+     body {
+        font-family: Arial, sans-serif;
+		color: white;
+        text-align: center;
+        height: 60vh; /* Tornando o corpo do documento do tamanho da tela */
+        margin: 0; /* Removendo margens padrão */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+		background-color: black;
+    }
+
+	
+    #showDogButton {
+        background-color: #4CAF50; /* Cor de fundo do botão */
+        border: none; /* Remover borda */
+        color: white; /* Cor do texto */
+        padding: 15px 32px; /* Espaçamento interno */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px; /* Tamanho da fonte */
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px; /* Borda arredondada */
+        transition-duration: 0.4s; /* Duração da transição */
+    }
+
+	#showDogButton:hover {
+        background-color: #45a049; /* Mudar cor de fundo ao passar o mouse */
+        color: white; /* Mudar cor do texto ao passar o mouse */
+    }
+    #dogImageContainer {
+        position: relative;
+        margin-top: 20px;
+    }
+    #dogImage {
+	max-width: 310%;
+    height: auto;
+    position: absolute;
+    top: 650%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+    }
+</style>
+</head>
+<body>
+    <h1>Tira Tédio</h1>
+    <div id="dogImageContainer">
+        <button id="showDogButton">Clique Aqui</button>
+        <img id="dogImage" src="">
+    </div>
+    <script>
+        const dogImage = document.getElementById('dogImage');
+        const showDogButton = document.getElementById('showDogButton');
+        const dogImageURLs = [
+            'https://pbs.twimg.com/media/E8X2s6rXIAUiVib.jpg',
+            'https://pbs.twimg.com/media/FII2ppOWQAIzbaX?format=png&name=360x360',
+            'https://pbs.twimg.com/media/FII2q8MWUAc5sId?format=png&name=360x360',
+            'https://i.pinimg.com/736x/f2/6d/33/f26d33a0640d215c8dfc7370a4e58466.jpg',
+			'https://pbs.twimg.com/media/FII4GmKXMAo16A3?format=png&name=small',
+			'https://pbs.twimg.com/media/FS_76LZXEAEG6xh.jpg',
+			'https://pbs.twimg.com/media/F_d7PW_WQAA__HE.jpg',
+			'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0mnhOE-ayMtWP5WFmyWuD3Z77VHMIP8VpFA&usqp=CAU',
+			'https://i.kym-cdn.com/entries/icons/facebook/000/045/527/pior_que_%C3%A9_capa_1.jpg'
+        ];
+
+        function getRandomDogImage() {
+            const randomIndex = Math.floor(Math.random() * dogImageURLs.length);
+            return dogImageURLs[randomIndex];
+        }
+
+        showDogButton.addEventListener('click', function() {
+            const randomDogImageURL = getRandomDogImage();
+            dogImage.src = randomDogImageURL;
+        });
+    </script>
+</body>
+</html>
